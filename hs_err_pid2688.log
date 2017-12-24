@@ -1,0 +1,181 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x18951120, pid=2688, tid=2196
+#
+# JRE version: 6.0_20-b02
+# Java VM: Java HotSpot(TM) Client VM (16.3-b01 mixed mode windows-x86 )
+# Problematic frame:
+# C  0x18951120
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00316c00):  JavaThread "main" [_thread_in_native, id=2196, stack(0x008e0000,0x00930000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x18951120
+
+Registers:
+EAX=0x18951120, EBX=0x12ed4bf0, ECX=0x00316d10, EDX=0x12ed5f68
+ESP=0x0092fa4c, EBP=0x0092fa80, ESI=0x12ed4bf0, EDI=0x00316c00
+EIP=0x18951120, EFLAGS=0x00010287
+
+Top of Stack: (sp=0x0092fa4c)
+0x0092fa4c:   00969f47 00316d10 0092fa94 00000000
+0x0092fa5c:   7c920040 0092fa60 00000000 0092fa94
+0x0092fa6c:   12ed5f68 00000000 12ed4bf0 00000000
+0x0092fa7c:   0092fa90 0092fab8 00962f07 00000000
+0x0092fa8c:   00968286 00000000 02eb0e08 0092fa98
+0x0092fa9c:   12ed4e35 0092facc 12ed5f68 00000000
+0x0092faac:   12ed4eb0 0092fa90 0092facc 0092faf0
+0x0092fabc:   00962da1 00000000 00000000 00000000 
+
+Instructions: (pc=0x18951120)
+0x18951110:   
+[error occurred during error reporting (printing registers, top of stack, instructions near pc), id 0xc0000005]
+
+Stack: [0x008e0000,0x00930000],  sp=0x0092fa4c,  free space=13e0092ef0ck
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x18951120
+j  SimpleSerialNative.updateInputBuffer()V+5
+j  SimpleSerialInputStream.available()I+4
+j  java.io.FilterInputStream.available()I+4
+j  SimpleSerialNative.available()I+4
+j  SimpleSerialNative.waitForData(I)V+1
+j  SimpleSerialNative.waitForData()V+2
+j  SimpleSerialNative.readByte()I+1
+j  uCAM.Cmd(B[B)S+88
+j  uCAM.Conn(B)S+57
+j  ViewForm.init()V+69
+j  Main.main([Ljava/lang/String;)V+16
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0xf049c]
+V  [jvm.dll+0x17fcf1]
+V  [jvm.dll+0xf051d]
+V  [jvm.dll+0xf9bc5]
+V  [jvm.dll+0x10181d]
+C  [java.exe+0x2155]
+C  [java.exe+0x85b4]
+C  [kernel32.dll+0xb713]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  SimpleSerialNative._readSerialPort(I)[B+0
+j  SimpleSerialNative.updateInputBuffer()V+5
+j  SimpleSerialInputStream.available()I+4
+j  java.io.FilterInputStream.available()I+4
+j  SimpleSerialNative.available()I+4
+j  SimpleSerialNative.waitForData(I)V+1
+j  SimpleSerialNative.waitForData()V+2
+j  SimpleSerialNative.readByte()I+1
+j  uCAM.Cmd(B[B)S+88
+j  uCAM.Conn(B)S+57
+j  ViewForm.init()V+69
+j  Main.main([Ljava/lang/String;)V+16
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x16bbc400 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=1168, stack(0x18df0000,0x18e40000)]
+  0x16f9c000 JavaThread "TimerQueue" daemon [_thread_blocked, id=2324, stack(0x18da0000,0x18df0000)]
+  0x16bf1000 JavaThread "AWT-Shutdown" [_thread_blocked, id=3768, stack(0x17180000,0x171d0000)]
+  0x16c09400 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=2956, stack(0x17130000,0x17180000)]
+  0x16bb1000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=4060, stack(0x16e00000,0x16e50000)]
+  0x16baac00 JavaThread "CompilerThread0" daemon [_thread_blocked, id=1788, stack(0x16db0000,0x16e00000)]
+  0x16ba9400 JavaThread "Attach Listener" daemon [_thread_blocked, id=3144, stack(0x16d60000,0x16db0000)]
+  0x16ba7c00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2144, stack(0x16d10000,0x16d60000)]
+  0x16b97c00 JavaThread "Finalizer" daemon [_thread_blocked, id=392, stack(0x16cc0000,0x16d10000)]
+  0x16b93000 JavaThread "Reference Handler" daemon [_thread_blocked, id=3544, stack(0x16c70000,0x16cc0000)]
+=>0x00316c00 JavaThread "main" [_thread_in_native, id=2196, stack(0x008e0000,0x00930000)]
+
+Other Threads:
+  0x16b90400 VMThread [stack: 0x16c20000,0x16c70000] [id=372]
+  0x16bb3400 WatcherThread [stack: 0x16e50000,0x16ea0000] [id=3064]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 4928K, used 600K [0x029e0000, 0x02f30000, 0x07f30000)
+  eden space 4416K,   2% used [0x029e0000, 0x029f61e0, 0x02e30000)
+  from space 512K, 100% used [0x02eb0000, 0x02f30000, 0x02f30000)
+  to   space 512K,   0% used [0x02e30000, 0x02e30000, 0x02eb0000)
+ tenured generation   total 10944K, used 476K [0x07f30000, 0x089e0000, 0x129e0000)
+   the space 10944K,   4% used [0x07f30000, 0x07fa70d8, 0x07fa7200, 0x089e0000)
+ compacting perm gen  total 12288K, used 8591K [0x129e0000, 0x135e0000, 0x169e0000)
+   the space 12288K,  69% used [0x129e0000, 0x13243cb0, 0x13243e00, 0x135e0000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x00424000 	C:\Archivos de programa\Java\jdk1.6.0_20\bin\java.exe
+0x7c910000 - 0x7c9c5000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c903000 	C:\WINDOWS\system32\kernel32.dll
+0x77da0000 - 0x77e4c000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e50000 - 0x77ee2000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77fc0000 - 0x77fd1000 	C:\WINDOWS\system32\Secur32.dll
+0x7c340000 - 0x7c396000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\msvcr71.dll
+0x6d8b0000 - 0x6db47000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\client\jvm.dll
+0x7e390000 - 0x7e421000 	C:\WINDOWS\system32\USER32.dll
+0x77ef0000 - 0x77f39000 	C:\WINDOWS\system32\GDI32.dll
+0x76b00000 - 0x76b2e000 	C:\WINDOWS\system32\WINMM.dll
+0x76340000 - 0x7635d000 	C:\WINDOWS\system32\IMM32.DLL
+0x6d860000 - 0x6d86c000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\verify.dll
+0x6d3e0000 - 0x6d3ff000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\java.dll
+0x6d340000 - 0x6d348000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\hpi.dll
+0x76bb0000 - 0x76bbb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d8a0000 - 0x6d8af000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\zip.dll
+0x6d0b0000 - 0x6d1fa000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\awt.dll
+0x72f80000 - 0x72fa6000 	C:\WINDOWS\system32\WINSPOOL.DRV
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\msvcrt.dll
+0x774b0000 - 0x775ed000 	C:\WINDOWS\system32\ole32.dll
+0x773a0000 - 0x774a3000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.5512_x-ww_35d4ce83\COMCTL32.dll
+0x77f40000 - 0x77fb6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x5b150000 - 0x5b188000 	C:\WINDOWS\system32\uxtheme.dll
+0x6d2e0000 - 0x6d334000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\fontmanager.dll
+0x746b0000 - 0x746fc000 	C:\WINDOWS\system32\MSCTF.dll
+0x17260000 - 0x1726f000 	C:\Archivos de programa\Logitech\SetPoint\lgscroll.dll
+0x78130000 - 0x781cb000 	C:\WINDOWS\WinSxS\x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50727.4053_x-ww_e6967989\MSVCR80.dll
+0x7c420000 - 0x7c4a7000 	C:\WINDOWS\WinSxS\x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50727.4053_x-ww_e6967989\MSVCP80.dll
+0x77660000 - 0x77681000 	C:\WINDOWS\system32\NTMARTA.DLL
+0x71b90000 - 0x71ba3000 	C:\WINDOWS\system32\SAMLIB.dll
+0x76f20000 - 0x76f4d000 	C:\WINDOWS\system32\WLDAP32.dll
+0x75160000 - 0x7518e000 	C:\WINDOWS\system32\msctfime.ime
+0x173d0000 - 0x18942000 	C:\WINDOWS\system32\shell32.dll
+0x6d6c0000 - 0x6d6d3000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\net.dll
+0x71a30000 - 0x71a47000 	C:\WINDOWS\system32\WS2_32.dll
+0x71a20000 - 0x71a28000 	C:\WINDOWS\system32\WS2HELP.dll
+0x6d6e0000 - 0x6d6e9000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\nio.dll
+0x6d250000 - 0x6d273000 	C:\Archivos de programa\Java\jdk1.6.0_20\jre\bin\dcpr.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: Main
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\MCC18\mpasm;C:\MCC18\bin;C:\Archivos de programa\JavaFX\javafx-sdk1.3\bin;C:\Archivos de programa\JavaFX\javafx-sdk1.3\emulator\bin;C:\Archivos de programa\Microchip\MPLAB C32\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Archivos de programa\Microsoft SQL Server\100\Tools\Binn\;C:\Archivos de programa\Microsoft SQL Server\100\DTS\Binn\;C:\Archivos de programa\Microchip\MPLAB C32 Suite\bin;C:\Archivos de programa\Microchip\MPLAB IDE\VDI;C:\OrCAD\OrCAD_16.2\tools\pcb\bin;C:\OrCAD\OrCAD_16.2\tools\fet\bin;C:\OrCAD\OrCAD_16.2\tools\specctra\bin;C:\OrCAD\OrCAD_16.2\tools\PSpice;C:\OrCAD\OrCAD_16.2\tools\PSpice\Library;C:\OrCAD\OrCAD_16.2\tools\Capture;C:\OrCAD\OrCAD_16.2\tools\bin;C:\Archivos de programa\Microchip\MPLAB C30\bin;C:\OpenCV2.0\bin;C:\MCC18\mpasm;C:\MCC18\bin;
+USERNAME=Administrador
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 13, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 3
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 13, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2096364k(741192k free), swap 4033528k(2719496k free)
+
+vm_info: Java HotSpot(TM) Client VM (16.3-b01) for windows-x86 JRE (1.6.0_20-b02), built on Apr 12 2010 13:52:23 by "java_re" with MS VC++ 7.1 (VS2003)
+
+time: Mon May 17 02:18:31 2010
+elapsed time: 36 seconds
+
